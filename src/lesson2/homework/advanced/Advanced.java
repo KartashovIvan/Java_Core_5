@@ -14,7 +14,7 @@ public class Advanced {
 
     }
 
-    public static void Task1 () {
+    public static void Task1() {
         String strNum = "234";
 
         int intNum = Integer.parseInt(strNum) + "some_text".length();
@@ -22,65 +22,57 @@ public class Advanced {
         System.out.println(intNum);
     }
 
-    public static void Task2 () {
-        System.out.println(Math.pow((3+5),2));
+    public static void Task2() {
+        System.out.println(Math.pow((3 + 5), 2));
     }
 
-    public static void Task3 () {
+    public static void Task3() {
         boolean hasFuel = true;
-        boolean hasElectricsProblem = true;
-        boolean hasMotorProblem = false;
-        boolean hasTransmissionProblem = false;
-        boolean hasWheelsProblem = true;
+        boolean hasElectricsProblem = false;
+        boolean hasMotorProblem = true;
+        boolean hasTransmissionProblem = true;
+        boolean hasWheelsProblem = false;
 
-        int cost = 0;
-        int counter = 0;
+        double cost = 0;
+        int counterProblem = 0;
+        double discount = 1;
 
-        if (!hasFuel && (hasElectricsProblem || hasMotorProblem || hasTransmissionProblem || hasWheelsProblem)){
+        if (!hasFuel && (hasElectricsProblem || hasMotorProblem || hasTransmissionProblem || hasWheelsProblem)) {
             System.out.println("Консультация бесплатна");
-        }else if (hasTransmissionProblem && (hasMotorProblem || hasElectricsProblem)){
-            if (hasMotorProblem) {
-                cost += 10_000;
-                System.out.println("Проблемы с мотором. Стоимость ремонта 10000 руб.");
-            }
-            if (hasElectricsProblem) {
-                cost += 5000;
-                System.out.println("Проблемы с электрикой. Стоимость ремонта 5000 руб.");
-            }
-            if (hasTransmissionProblem) {
-                cost += 4000;
-                System.out.println("Проблемы с КПП. Стоимость ремонта 4000 руб.");
-            }
-            System.out.println("Общий счет " + cost * 0.80);
-        } else {
-            if (!hasFuel) {
-                cost += 1000;
-                System.out.println("Нет топлива. Стоимость за консультацию 1000 руб.");
-            }
-            if (hasMotorProblem) {
-                counter += 1;
-                cost += 10_000;
-                System.out.println("Проблемы с мотором. Стоимость ремонта 10000 руб.");
-            }
-            if (hasElectricsProblem) {
-                counter += 1;
-                cost += 5000;
-                System.out.println("Проблемы с электрикой. Стоимость ремонта 5000 руб.");
-            }
-            if (hasTransmissionProblem) {
-                counter += 1;
-                cost += 4000;
-                System.out.println("Проблемы с КПП. Стоимость ремонта 4000 руб.");
-            }
-            if (hasWheelsProblem) {
-                counter += 1;
-                cost += 2000;
-                System.out.println("Проблемы с колесами. Стоимость ремонта 2000 руб.");
-            }
+        }
+        if (!hasFuel) {
+            cost += 1000;
+            System.out.println("Нет топлива. Стоимость за консультацию 1000 руб.");
+        }
+        if (hasMotorProblem) {
+            counterProblem += 1;
+            cost += 10_000;
+            System.out.println("Проблемы с мотором. Стоимость ремонта 10000 руб.");
+        }
+        if (hasElectricsProblem) {
+            counterProblem += 1;
+            cost += 5000;
+            System.out.println("Проблемы с электрикой. Стоимость ремонта 5000 руб.");
+        }
+        if (hasTransmissionProblem) {
+            counterProblem += 1;
+            cost += 4000;
+            System.out.println("Проблемы с КПП. Стоимость ремонта 4000 руб.");
+        }
+        if (hasWheelsProblem) {
+            counterProblem += 1;
+            cost += 2000;
+            System.out.println("Проблемы с колесами. Стоимость ремонта 2000 руб.");
         }
 
-        if (counter == 2) {
-            System.out.println("Полная стоимость ремонта: " + (cost * 0.90));
+        if (hasTransmissionProblem && (hasElectricsProblem || hasMotorProblem)) {
+            discount -= 0.2;
         }
+        if (counterProblem == 2){
+            discount -= 0.1;
+        }
+
+        System.out.println("Полная стоимость: " + (cost * discount));
     }
 }
+
