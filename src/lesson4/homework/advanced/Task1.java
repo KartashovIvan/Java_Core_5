@@ -12,11 +12,16 @@ public class Task1 {
     }
     //метод для прибавления к result переменной increment
     public void circle () {
-        for (int i =0;result < 1_000_000;i++){
-            result += increment;
-            counter ++;
+
+        if(increment<0){
+            System.out.println("increment меньше нуля");
+        } else {
+            while (result < 1_000_000) {
+                result += increment;
+                counter++;
+            }
+            System.out.println("Колличество прибавлений increment " + counter + "\nЗначение result " + result);
         }
-        System.out.println("Колличество прибавлений increment " + counter + "\nЗначение result " + result);
     }
 
 }
