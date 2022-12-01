@@ -21,60 +21,119 @@ public class Human {
     private String name;
     private int weigh;
 
-    private Human(HumanBuilder humanBuilder) {
-        this.age = humanBuilder.age;
-        this.name = humanBuilder.name;
-        this.weigh = humanBuilder.weigh;
-    }
-
     public int getAge() {
         return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getWeigh() {
         return weigh;
     }
 
-    public static HumanBuilder bilder(){
-        return new HumanBuilder();
+    public void setWeigh(int weigh) {
+        this.weigh = weigh;
+    }
+
+    public static HumanBilder builder (){
+        return new HumanBilder();
     }
 
     public void info (){
         System.out.println(getName() + " - возраст "+ getAge() + ", вес "+ getWeigh());
     }
 
-    public static class HumanBuilder {
+    public static class HumanBilder{
         private Human human;
-        private int age;
-        private String name;
-        private int weigh;
 
-        public HumanBuilder age(int age) {
-            this.age = age;
+        public HumanBilder(){
+            this.human = new Human();
+        }
+
+        public HumanBilder age (int age) {
+            this.human.setAge(age);
             return this;
         }
 
-        public HumanBuilder name(String name) {
-            this.name = name;
+        public HumanBilder name (String name) {
+            this.human.setName(name);
             return this;
         }
 
-        public HumanBuilder weigh(int weigh) {
-            this.weigh = weigh;
+        public HumanBilder weigh (int weigh) {
+            this.human.setWeigh(weigh);
             return this;
         }
 
-        private HumanBuilder(){
-            this.human = new Human(this);
-        }
-
-        public Human build(){
-            return new Human(this);
+        public Human build () {
+            return human;
         }
 
     }
+    //    private Human(HumanBuilder humanBuilder) {
+//        this.age = humanBuilder.age;
+//        this.name = humanBuilder.name;
+//        this.weigh = humanBuilder.weigh;
+//    }
+//
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public int getWeigh() {
+//        return weigh;
+//    }
+//
+//    public static HumanBuilder bilder(){
+//        return new HumanBuilder();
+//    }
+//
+//    public void info (){
+//        System.out.println(getName() + " - возраст "+ getAge() + ", вес "+ getWeigh());
+//    }
+//
+//    public static class HumanBuilder {
+//        private Human human;
+//        private int age;
+//        private String name;
+//        private int weigh;
+//
+//        public HumanBuilder age(int age) {
+//            this.age = age;
+//            return this;
+//        }
+//
+//        public HumanBuilder name(String name) {
+//            this.name = name;
+//            return this;
+//        }
+//
+//        public HumanBuilder weigh(int weigh) {
+//            this.weigh = weigh;
+//            return this;
+//        }
+//
+//        private HumanBuilder(){
+//            this.human = new Human(this);
+//        }
+//
+//        public Human build(){
+//            return new Human(this);
+//        }
+//
+//    }
 }
