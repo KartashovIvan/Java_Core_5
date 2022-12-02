@@ -14,7 +14,7 @@ public class Advanced {
         System.out.println("\nЗадание №2");
         //Случайная длина массива
         Random rnd = new Random();
-        task2(rnd.nextInt(1,30));
+        task2(rnd.nextInt(1,20));
 
         System.out.println("\nЗадание №3");
         task3();

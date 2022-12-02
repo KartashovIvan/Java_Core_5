@@ -2,6 +2,8 @@ package lesson4.homework.expert;
 
 import org.w3c.dom.ls.LSOutput;
 
+import java.util.*;
+
 public class Expert {
     // Задача №1: узнать сколько всего машин со спец номерами(вывести на экран): начинаются на M
     // и заканчиваются на АВ (русские буквы).
@@ -27,7 +29,33 @@ public class Expert {
     // Map (HashMap) - узнать что это, map.get(), map.put(), map.entrySet() - для итерации, entry.getValue(), entry.getKey()
     // <Integer> - обозначает тип который хранится в этой структуре данных (Generics)
     // Регулярные выражения - вытащить регион авто
+
+
     public static void main(String[] args) {
-        System.out.println(GeneratorExpertHomework.getData());
+
+//        int cout=0;
+//        String[] str = GeneratorExpertHomework.getData().get(256).get("input");
+//        for (String s : str){
+////            System.out.println(s);
+//
+//            if (s.matches("М[\\d]{3}АВ[\\d]{3}")){
+//                System.out.println(s);
+//                cout++;
+//            }
+//        }
+//        System.out.println(cout);
+        int cout =0;
+        Map<Integer, Map<String, String[]>> data= GeneratorExpertHomework.getData();
+        for (var da: data.values()) {
+            for(var d : da.values()){
+                for (String str : d){
+                    if (str.matches("М[\\d]{3}АВ[\\d]{3}")){
+                        cout++;
+                    }
+                }
+            }
+        }
+
+        System.out.println(cout);
     }
 }
