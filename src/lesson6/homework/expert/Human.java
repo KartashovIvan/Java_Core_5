@@ -5,6 +5,9 @@ public class Human {
     private String name;
     private int weigh;
 
+    private Human() {
+    }
+
     private int getAge() {
         return age;
     }
