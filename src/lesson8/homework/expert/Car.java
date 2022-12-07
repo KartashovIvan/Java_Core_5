@@ -11,6 +11,6 @@ public class Car implements CostCarValue {
         if  (this.costCar < 0){
             throw new NegativeCostCarException();
         } else {
-            System.out.println("Меня взяли из кар");}
+            System.out.println(this.costCar);}
     }
 }
