@@ -11,7 +11,7 @@ public class CarShop implements CostCarValue {
         try {
             costCarValue.printCost();
             System.out.println("Хочешь купить авто?");
-        } catch (NegativeCostCar e) {
+        } catch (NegativeCostCarException e) {
             System.out.println("Неизвестна мне");
             System.out.println("Давайте посмотрим другое авто?");
         }
