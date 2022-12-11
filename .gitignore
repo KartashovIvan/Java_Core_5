@@ -1,0 +1,4 @@
+.gitignore
+/out/
+/.idea/
+/Java_Core_5.iml
