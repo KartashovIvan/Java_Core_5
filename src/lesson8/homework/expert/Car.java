@@ -7,10 +7,11 @@ public class Car implements CostCarValue {
         this.costCar = costCar;
     }
 
-    public void printCost () throws NegativeCostCarException {
-        if  (this.costCar < 0){
+    public void printCost() throws NegativeCostCarException {
+        if (this.costCar < 0) {
             throw new NegativeCostCarException();
         } else {
-            System.out.println(this.costCar);}
+            System.out.println(this.costCar);
+        }
     }
 }

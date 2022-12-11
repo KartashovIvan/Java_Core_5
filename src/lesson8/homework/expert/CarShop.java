@@ -1,6 +1,6 @@
 package lesson8.homework.expert;
 
-public class CarShop implements CostCarValue {
+public class CarShop implements CostCarValue{
     private CostCarValue costCarValue;
     public CarShop(CostCarValue costCarValue) {
         this.costCarValue = costCarValue;
@@ -15,6 +15,5 @@ public class CarShop implements CostCarValue {
             System.out.println("Неизвестна мне");
             System.out.println("Давайте посмотрим другое авто?");
         }
-
     }
 }
