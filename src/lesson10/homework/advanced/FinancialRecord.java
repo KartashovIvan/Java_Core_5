@@ -1,7 +1,6 @@
 package lesson10.homework.advanced;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Random;
 
 public class FinancialRecord {
@@ -19,17 +18,9 @@ public class FinancialRecord {
     private int incomes;
     private int outcomes;
 
-    public FinancialRecord() {
+    private FinancialRecord() {
         this.incomes = new Random().nextInt(10000);
         this.outcomes = new Random().nextInt(10000);
-    }
-
-    public void setIncomes(int incomes) {
-        this.incomes = incomes;
-    }
-
-    public void setOutcomes(int outcomes) {
-        this.outcomes = outcomes;
     }
 
     public int getIncomes() {
@@ -41,7 +32,7 @@ public class FinancialRecord {
     }
 
 
-    public void doReport (String filePath){
+    public static void doReport (String filePath){
         try (FileWriter fileWriter = new FileWriter(filePath)) {
             for (int i =0;i!=10;i++){
                 FinancialRecord financialRecord = new FinancialRecord();
@@ -50,5 +41,36 @@ public class FinancialRecord {
         } catch (IOException e){
             System.out.println("Что то не так!");
         }
+    }
+
+    public static int sumIncomes (String filePath) throws IOException {
+        int incomes =0;
+
+        FileReader fileReader = new FileReader(filePath);
+        BufferedReader bufferedReader = new BufferedReader (fileReader);
+        while (bufferedReader.ready()){
+            String[]massSTR = new String[2];
+            massSTR = bufferedReader.readLine().split(",");
+            incomes +=Integer.parseInt(massSTR[0].substring(8));
+        }
+        fileReader.close();
+        bufferedReader.close();
+        return incomes;
+    }
+
+    public static int sumOutcomes (String filePath) throws IOException {
+        int outcomes =0;
+
+        FileReader fileReader = new FileReader(filePath);
+        BufferedReader bufferedReader = new BufferedReader (fileReader);
+        while (bufferedReader.ready()){
+            String[]massSTR = new String[2];
+            massSTR = bufferedReader.readLine().split(",");
+            outcomes += Integer.parseInt(massSTR[1].substring(10));
+        }
+        fileReader.close();
+        bufferedReader.close();
+
+        return outcomes;
     }
 }
