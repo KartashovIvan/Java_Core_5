@@ -31,6 +31,7 @@ public class Runner {
             try (BufferedReader bufferedReader = new BufferedReader(new FileReader(pathReport))) {
 
                 while (bufferedReader.ready()) {
+                    //Сразу читаем и разибаем строку на массив
                     String[] reportArray = bufferedReader.readLine().split(";");
                     if (reportArray[0].equals("pyterochka")) {
                         income += Double.parseDouble(reportArray[1]) - Double.parseDouble(reportArray[2]);
@@ -54,6 +55,7 @@ public class Runner {
         for (String pathReport : array){
             try (BufferedReader bufferedReader = new BufferedReader(new FileReader(pathReport))) {
                 while (bufferedReader.ready()) {
+                    //Сразу читаем и разибаем строку на массив
                     String[] reportArray = bufferedReader.readLine().split(";");
                     if (reportArray[0].equals("pyterochka")) {
                         outComeFive += Double.parseDouble(reportArray[2]);
