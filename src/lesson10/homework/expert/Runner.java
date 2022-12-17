@@ -38,10 +38,10 @@ public class Runner {
                     }
                 }
 
-                System.out.println(String.format("%02d", month) + ".2012: " + income);
+                System.out.printf("%02d.2012:%s ", month, income+"\n");
                 month++;
             } catch (IOException e){
-                System.out.println("Что то не так!");
+                System.out.println("Что то не так! в репортФайв");
             }
         }
     }
